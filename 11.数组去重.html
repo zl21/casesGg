@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>11.数组去重.html</title>
+</head>
+
+<body>
+    <script>
+        var arr = [10, 20, 20, 20, 30, 40, 40, 10];
+        /* 方法1： IE6中使用new Set ()方法，先将数组去重，但是此方法返回的是一个对象，所以之后要将对象转为数组，使用...
+            注意：Set () 没法去重元素是引用对象的数组。不会对原数组进行操作。
+        */
+        console.log([...new Set(arr)]);//[10, 20, 30, 40]
+        console.log(arr);//[10, 20, 20, 20, 30, 40, 40, 10]
+    </script>
+</body>
+
+</html>

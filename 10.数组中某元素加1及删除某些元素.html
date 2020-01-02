@@ -20,15 +20,13 @@
             item.age++;
             return item;
         })
-        console.log(arr);
+        console.log(arr);//数组元素不是单纯的值而是对象时，map方法会改变原数组。(forEach同)
 
         // ② 对上面数组进行操作，返回新的数组，要求删除成绩60分以下的同学    
         var arr1 = arr.filter(function (item) {
             return item.score >= 60;
         })
         console.log(arr1);
-
-
     </script>
 </body>
 
