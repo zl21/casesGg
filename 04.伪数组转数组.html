@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>04.伪数组转数组</title>
+</head>
+
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+        var oLis = document.querySelectorAll('li');
+
+        /* 方法一：声明一个空数组，通过遍历伪数组把它们重新添加到新的数组中 */
+        var arr = [];
+        for (var i = 0; i < oLis.length; i++) {
+            arr[arr.length] = oLis[i];
+        }
+        console.log(arr);
+        console.log(typeof arr);
+
+        
+        /* 方法二：使用数组的 slice/concat方法 它返回的是数组，使用 call 或者 apply 指向伪数组  */
+        // var arr1 = Array.prototype.slice.call(oLis);
+        // console.log(arr1);
+        
+        /* 方法三：使用原型继承（存疑） */
+        // oLis.__proto__ = Array.prototype;
+        // console.log(oLis);
+        // console.log(typeof oLis);
+        
+        /* 方法四：ES6 中数组的新方法 from ()（此方法不是array本身的，而是构造函数Array的） */
+        var arr2 = Array.from(oLis);
+        console.log(arr2);
+        
+        /* 方法五：jQ 的 makeArray ()，toArray () 方法  */
+
+    </script>
+</body>
+
+</html>
