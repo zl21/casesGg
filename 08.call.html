@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>call</title>
+</head>
+
+<body>
+    <script>
+        var number = 50;
+        var obj = {
+            number: 60,
+            getNum: function () {
+                var number = 70;
+                return this.number;
+            }
+        };
+        console.log(obj.getNum());//60,指向obj
+        console.log(obj.getNum.call());//50，call不传参数就是window
+        console.log(obj.getNum.call({ number: 20 }));//20，指向这个参数匿名对象
+    </script>
+</body>
+
+</html>

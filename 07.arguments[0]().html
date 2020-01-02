@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>arguments[0]()</title>
+</head>
+
+<body>
+    <script>
+        var length = 10;
+        function fn() {
+            console.log(this.length);
+        }
+        var obj = {
+            length: 5,
+            method(fn) { //方法中的参数属于迷惑行为！
+                fn();
+                // var a = 10;
+                // function f2(){};
+                arguments[0]();//相当于arguments.fn()，所以求的是arguments的length，为1
+                console.log(arguments);//存疑，这个arguments到底是谁的，为什么长度一直为1
+                
+            }
+        };
+        obj.method(fn);//10   1
+    </script>
+</body>
+
+</html>

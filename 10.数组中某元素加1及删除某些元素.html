@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>10.数组中某元素加1及删除某些元素.html</title>
+</head>
+
+<body>
+    <script>
+        var arr = [
+            { name: 'Jolin', age: 23, score: 90, weight: 45, height: 158 },
+            { name: 'Angela', age: 25, score: 87, weight: 48, height: 165 },
+            { name: 'Ha', age: 24, score: 59, weight: 48, height: 175 },
+        ];
+        // ① 返回新的数组，要求每个同学的年龄 + 1岁
+        arr.map(function (item) {
+            item.age++;
+            return item;
+        })
+        console.log(arr);
+
+        // ② 对上面数组进行操作，返回新的数组，要求删除成绩60分以下的同学    
+        var arr1 = arr.filter(function (item) {
+            return item.score >= 60;
+        })
+        console.log(arr1);
+
+
+    </script>
+</body>
+
+</html>

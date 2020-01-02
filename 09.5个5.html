@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>5个5</title>
+</head>
+
+<body>
+    <script>
+        for (var i = 0; i < 5; i++) {
+            (function () {  //没有使用循环的i,输出5个5是因为每次循环都打开了一个计时器，但是并没有执行计时器，等到其他解析完之后计时器才执行，这时开了5次的计时器里的语法就会打印5次最终的i=5。因为计时器是defer类型的延迟执行机制。
+                setTimeout(function () {
+                    console.log(i); // 5 5 5 5 5
+                }, i * 1000);
+            })(i);
+        }
+
+        /* for (var i = 0; i < 5; i++) {
+            (function (i) { //使用每一次循环的i
+                setTimeout(function () {
+                    console.log(i); // 0 1 2 3 4
+                }, 1000);
+            })(i);//将全局的i作为参数传入内部
+        } */
+
+    </script>
+</body>
+
+</html>
