@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>06.交换俩变量的值</title>
+</head>
+
+<body>
+    <script>
+        var a = 100; b = 200;
+        /* 方法1：在IE6中可以通过改变结构的方式，结构赋值 */
+        [a,b] = [b,a];
+        console.log('a:'+a,'b:'+b);
+
+        /* 方法2： */
+        a = a + b;
+        b = a - b;
+        a = a - b;
+        console.log('a:'+a,'b:'+b);
+        
+        /* 方法3：位移运算，异或运算 （有待理解）*/
+        a = a ^ b;
+        b = a ^ b;
+        a = a ^ b;
+        console.log('a:'+a,'b:'+b);
+    </script>
+</body>
+
+</html>
