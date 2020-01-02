@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>05.[1,2,3].map(parseInt)</title>
+</head>
+<body>
+    <script>
+        /* 由于parseInt()需要俩参数，0进制的1为1,1进制的2为NaN，2进制的3为NaN */
+        var re = [1,2,3].map(parseInt);
+        console.log(re);//[1 NaN NaN]
+    </script>
+</body>
+</html>
