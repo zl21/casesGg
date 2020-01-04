@@ -1,0 +1,328 @@
+Javascript综合复习题【共116题】
+
+每份考卷中javascript只占一半。题型和分数如下：
+1.单选题：10题*1分 = 10分
+2.填空题：5题*1分 = 5分
+3.程序阅读题：2题*4分 = 8分
+4.程序实现题：2题*5分 = 10分
+5.简答题：3题*5分 = 15分
+合计：48分，共22题。
+剩余52分，23题是另一门课程。
+
+【提示：本综合复习题的目的是让同学们多见识各种题目。选择题、填空题以及程序阅读题可以仔细做，对于程序实现和简答题建议先理解再记忆，切记死背答案。】
+
+第一部分：单选题
+1.Javascript中, 以下哪条语句一定会产生运行错误？      答案(  B   )
+    A、var _变量=NaN;   B、var 0bj = [];   C、var obj = //;  	D、var obj = {};
+2.以下两个变量a和b，a+b的哪个结果是NaN？      答案(   C  )
+    A、var a =undefined; b=NaN 
+    B、var a = ‘123’; b=NaN
+    C、var a =undefined , b =NaN
+    D、var a=NaN , b='undefined'
+3.var a=10; b=20; c=4;  ++b+c+a++ 以下哪个结果是正确的？答案(  B  )
+    A、34   B、35  C、36  D、37
+4.Javascript中, 以下代码运行后变量y的值是：    答案(   D  )
+    var x = [‘abcde’ ,  123456]; 
+    var y = typeof  typeof  x[1];
+    A、"function"		B、"object"		C、"number"		D、"string"
+5.Javascript中, 以下那两个变量的值不是==：    答案(   B  )
+    A、var a=0 , b=-0;		B、var a=NaN , b=NaN;	    C、var a=null , b=undefined;			
+    D、var a=[] , b=false;
+6.Javascript中, 以下声明变量语句中哪个不正确？      答案(  D   )
+    A、var aa;   B、var bb=3; cc='good';  C、var dd = ee = 100;  D、var ff=3, gg='he's good';
+7.Javascript中, foo对象有att属性，那么以下获取att属性值的表达式哪个是错误的？答案(  C  )
+    A、foo.att   B、foo["att"]  C、foo{"att"}  D、foo["a"+"t"+"t"]
+8.Javascript中, 以下代码运行后变量y的值是：    答案(  B   )
+    var x = [typeof x, typeof y][1]; 
+	var y = typeof typeof x;
+    A、"number"		B、"string"		C、"undefined"		D、"object"
+9.下面哪个javascript变量名称不合法（  D  ）
+	A. string 		B. length		C.非法字符		D.this	
+10.下面哪个描述不正确（  B  ）
+    A. NaN!=null   B.NaN==NaN   C.{}!=false   D.null!=false 	
+11.var arr = new Array(new Array(9,0,3,4,5) , ['a' , 'b' , 'c']  ,  new Array(2,9,0,6));则arr[1][3]=（  D ）
+    A.c		       B.6		      C.4		   D.undefined
+12.有如下代码：
+    var arr = new Array(9); 
+    arr[0]=1;
+    arr[2]=2;
+    该数组的length属性值为（ D  ）
+    A、2       B、10         C、8      D、9
+13.有一个submit按钮，在这个按钮控件上添加哪个事件不起作用？（ D ）
+    A.onMouseout	    B.onmouseover	    C.onclick		   D. onsubmit
+14.有一个变量var a=typeof string  + 100+50 + NaN，以下哪个是alert(a)的结果？（ C  ）
+    A.function150NaN	  B. function10050NaN   C. undefined10050NaN	   D. NaN
+15.以下代码，哪个结果是正确的？（  A ）
+	var str='123abc';
+	str += str.replace('abc' , '');
+	alert(str);
+    A.123abc123	    B. 123abc	    C.123		   D. abc
+16.以下哪个结果是正确的？（ C  ）
+    var a=100 ,b="100.5a6", c="100.1";
+    alert(Math.max(a , b ,c));
+    A.100	      B. 100.1	         C.NaN		      D.undefined
+17.以下哪个语句能正确弹出结果: （ D  ）
+    A.alert(new Date(2011 , 12 , 25).getDay());
+    B.alert(new Date(2011 , 12 , 25 , 5).getDay());
+    C.alert(new Date(2011 , 12 , 25 , 5 , 5 , 9).getDay());
+    D.以上三个结果都正确
+18.以下代码正确的运行结果是？（ C  ）
+	var arr=[0,1,2,3,4,5,6];
+	arr2 = arr.slice(2,5);
+	alert(arr2);
+    A.  1,2,3       B.  1,2,3,4       C.  2,3,4         D.  2,3,4,5
+19.下面哪个描述不正确（  B  ）
+    A. NaN!=null   B.null!=undefined   C.{}!=false   D.null!=false 	
+20.var a = new Array(new Array(9,0,3,6,5), new Array(2,9,0,6));则a[0][3]=（ B ）
+    A.3		       B.6		      C.5		   D.0
+21.有一个变量var a=(100+50)+undefined+NaN，以下哪个是alert(a)的结果？（  B  ）
+    A.150undefinedNaN	  B.NaN   C.150undefined	   D. 10050undefinedNaN
+22.以下代码，哪个结果是正确的？（  C ）
+    var a='123.5abc',b='100abc';
+    alert(parseInt(a)+Number(b));
+    A.123100abc	    B. 123.5abc100abc	    C.NaN		   D. 223
+23.以下哪个结果是正确的？（ B  ）
+    var a=100,b="100.56",c="80";
+    alert(Math.max(a , b ,c));
+    A.100	      B. 100.56	         C.NaN		      D.80
+24.以下哪个正则表达式符号的描述正确？（ C  ）
+    A.  * 等同{1,}
+    B.  +等同{0,}
+    C.  ?等同{0,1}
+    D.  \W 等同[0-9A-Za-z_]
+25.请选择结果为真的表达式：（    C     ）   
+   A. typeof null  !="object"    
+   B. null    ===    undefined   
+   C. 1 == "01.00"  
+   D. NaN    ==    NaN
+
+26.以下哪个单词不属于javascript保留字：（  C     ）   
+   A. with   
+   B. instanceof   
+   C. base   
+   D. void
+27.设置下拉列表框中某项被默认选中的属性是（ C   ）
+    A.checked   B. check  C. selected 	D.select 
+
+28.nodeType属性可用于获取节点类型，如果返回值为1，则表明该节点为（  B  ）。
+    A.文本节点	B. 元素节点		C.属性节点
+29.javascript的基本数据类型不包括（  B  ）
+	A. 字符串		B.数组  	C.数值		D.布尔
+30.要检测值是否为 NaN，应使用 （  D  ）函数。
+    A．Number		B.parseInt     	C. IsNaN		D. isNaN
+31.为获取页面中多个同名对象，应使用document的（  B  ）方法； 
+    A.getElementById() B. getElementsByName() C. getElementsByTagName() 
+
+32.（  A  ）属性用于获取 HTML 文件的根节点。
+    A. documentElement		B. rootElement		C. documentNode   D.documentRoot
+
+
+
+
+
+第二部分：填空题
+1.Javascript中, 如果已知HTML页面中的某标签对象的id=”username”，用____document.getElementById(‘username’)___ _方法获得该标签对象。
+2.typeof运算符返回值中有一个跟javascript数据类型不一致，它是________”function”_________。
+3.定义了一个变量，但没有为该变量赋值，如果alert该变量，javascript弹出的对话框中显示___undefined______ 。
+4.JavaScript有两种复合数据类型 ：___数组___、___对象____。
+5.JavaScript有两种引用数据类型 ：___数组___、___对象____。
+6.JavaScript有两种特殊数据类型 ：_____null____、___undefined_。
+7.document中的选择器有：____getElementById() ,getElementsByName(),getElementsByTagName()_。
+8.window对象中定时器有  setInterval() 、setTimeout()    。
+9.typeof  NaN，typeof Array的结果分别是_____”number” , “object”_____。
+10.typeof [1,2,3]，typeof undefined的结果分别是_____”object”,”undefined”__  。
+11.用javascript将ID为mydiv的标签元素的样式名设置为“bigfont”：
+    ______document.getElementById(‘mydiv’).className=’bigfont’;___。
+12.window的______onload____ 事件在浏览器完成页面加载后立即触发。
+13.(   continue  )语句结束本次循环，（  break   ） 命令可以终止循环的运行，然后继续执行循环之后的代码。
+14.Javascript里Math的（  random() ）方法返回介于0和1之间的伪随机数。
+15.获得焦点的事件（   onfocus   ）,失去焦点的事件（  onblur   ）。
+16.Javascript通过(   setTimeout     ) 延迟指定时间后，去执行某程序。
+17.Javascript里String对象通过（   indexOf() ）方法取第一次出现子字符串的字符位置。
+18.通过Javascript使页面后退的代码是（  history.back()  ）。
+19.Javascript里取字符串的长度是（   length ）,取数组的长度是(    length    )
+20.Javascript里若已知元素id，通过(      getElementById()          )可以获得一个元素。
+21.Javascript里若已知元素name，通过（  getElementsByName()  ）可以获得一组元素。
+22.html页面中有一个ul，id为“menulist”，name为“mymenu”，这个ul标签中有五个li标签，通过(      getElementsByTagName() )
+可以获得这个ul标签中的五个li元素。
+
+23.Javascript弹出对话框的三个命令( alert())、( confirm() )、(prompt() )。
+24.Javascript里字符串执行正则的方法是( match() )，字符串里根据指定字符切割的方法是( split() )。
+25.Select当选择发生变化触发的事件是( onchange ), 表单提交事件是（ onsubmit）。
+
+
+
+
+第三部分：程序阅读题
+1.分析代码，得出正确的结果。
+	var a=10, b=20 , c=30;
+	++a;
+	a++;
+	e=++a+(++b)+(c++)+a++;
+	alert(e);
+
+弹出提示对话框：77
+
+
+2.阅读以下代码，请分析出结果：
+	var arr = new Array(1 ,3 ,5);
+	arr[4]='z';
+	arr2 = arr.reverse();
+	arr3 = arr.concat(arr2);
+	alert(arr3);
+
+弹出提示对话框：z,,5,3,1,z,,5,3,1
+
+3.阅读以下代码，请分析出结果：
+	alert(Math.max(1,3,4,'10'));
+	alert(Math.max(1,3,4,'10abc'));
+	alert(Math.max(1,3,4,NaN));
+	alert(Math.max(1,3,4,undefined));
+
+依次弹出提示对话框：10,NaN,NaN,NaN
+
+
+4.以下代码执行的结果是多少？必须写出正确的结果和正确的原因。
+var total=16.5;
+	var number = sum(5.50 , 5.01 , 5.99);
+	alert(total);
+	function  sum(n1 , n2 , n3) {
+		total = Math.round(n1) + Math.ceil(n2) + Math.floor(n3);
+		return total;
+	}
+弹出提示对话框：17
+
+
+5.以下程序运行后，结果是什么？
+		var filepath = 'D:\abc.doc';
+		var extension = filepath.substr(filepath.lastIndexOf('.'));
+		alert(extension);
+弹出提示对话框：  “.doc”
+
+6.以下代码执行的结果是多少？请分析为什么？
+var total=10;
+	var number = square(5);
+	alert(total);
+	function square(n) {
+		total = n*n;
+		return total;
+	}
+弹出提示对话框： 25
+
+
+7.以下程序运行后，弹出的值是多少       。
+		var a=10; 
+		function fun(a) {
+			a = 5;
+		} 
+		fun(a);		
+		alert(a);
+
+弹出提示对话框：  10
+
+
+8.分析以下代码，写出结果。
+var a="15.15abc" , b='10.15' , c='10.0abc';
+alert(parseInt(a)+Number(b)+parseFloat(c));
+
+弹出提示对话框：  35.15
+
+9.分析以下代码，写出结果。
+	var a="15.5" , b='10';
+	var c="parseInt(a)" , d="Number(b)";
+	with(document) {
+		write(eval("parseInt(a)+Number(b)") + "<br>");
+write(eval("c+d") + "<br>");
+		write(eval(c)+ eval(d) + "<br>");
+	}
+页面输出：
+25
+parseInt(a)Number(b)
+25
+
+
+10.分析以下代码，写出结果。
+		var a=100 , b=50 , c;
+		var d=Number('100.abc');
+		var e=typeof Math;
+		alert(a+b+c+e+d);
+
+弹出提示对话框：  NaNobjectNaN
+
+
+
+11.分析以下代码，写出结果。
+<script>
+	window.onload=function() {
+		var a=document.getElementById('mydiv');
+		alert(a.lastChild.previousSibling.firstChild.nodeValue);
+	}
+  </script>
+
+  <dl id="mydiv">
+	<dt>aaa</dt>
+	<dd>xxx</dd>
+	<dt>bbb</dt>
+	<dt>ccc</dt>
+</dl>
+
+弹出提示对话框：  bbb
+
+
+
+
+
+第四部分：程序实现题
+1.写一个字符串反转函数，实现字符串倒序。
+2.请借助Array内置对象的相关方法，实现字符串倒序排列。
+3.写一个函数，能获取文件后缀；
+4.请将字符串open_my_door这种形式，转成OpenMyDoor的形式。
+5.写一个实现字符串首字母大写的函数；
+6.写一个函数，实现去除字符串左右空格；
+7.写一个获取斐波那契数列前N项的函数，返回一个数组，将数列中的每个数值存入数组；
+8.写一个获取阶乘的函数，返回一个字符串，其中是阶乘表达式和结果；
+9.用递归的思想，写一个求取n的阶乘的函数。
+10.写一个函数，能获取两个日期相差天数；
+11.写一个函数，能求取某个日期是星期几；
+12.利用正则和键盘事件，写一个只能输入数字，如果输入非数字，当按键抬起，会自动消失的input文本控件；
+13.利用正则和鼠标事件，写一个过滤HTML标签的文本域控件，如果在文本域中输入html标签，当光标一旦离开文本域，则其中所有html会自动消失；
+14.写一个用户注册表单中对用户名的验证。要求是：用户名不可以为空，用户名必须是3-15位中文。
+15.写一个点击“大”、“中”、“小”三个超链，实现页面部分文字随之分别为：18，14，12号字体的切换效果。
+16.写一个当鼠标移入和移出，图片切换的效果。
+17.假设a.html和b.html在同一个文件夹下面，请在a.html页面中使用javascript代码实现：在浏览器中打开a.html五秒钟后，自动跳转到b.html页面。
+18.假设a.html和b.html在同一个文件夹下面，请在a.html页面中使用javascript代码实现：点击这个a.html中的“打开”，弹出一个新窗口。该窗口宽500px，高度为450px，该窗口中显示的页面是b.html页面。
+19.求取1-50之间的随机数，不可以出现重复。如果不足两位，则在该数字前补足“0”。
+20.实现一个在页面指定位置，出现一个跳动的时钟效果。
+21.写代码，能实现对多选项至少勾选一项的验证；
+22.实现多选项的全选、取消全选的效果；
+23.实现多选项的全选、反选的效果。
+24.利用DOM知识，实现获取dl标签下dd标签中的内容，也就是希望得到“xxx” 。不允许对现有的HTML代码做任何改动。
+<dl id="mydiv">
+	<dt>aaa</dt>
+	<dd>xxx</dd>
+	<dt>bbb</dt>
+	<dt>ccc</dt>
+</dl>
+25.如果2038年12月25日是世界末日，那么计算一下你还能活多少天，写出代码？
+26.写一段代码，能实现让页面中指定层隐藏。需要写出html代码和javascript代码。
+
+
+第五部分：简答题
+1.javascript中有哪几种数据类型，分别写出中文和英文。
+2.javascript中==和===的区别是什么？举例说明。
+3.写一个实例，分析循环中break与continue的区别。
+4.写出javascript的typeof运算符返回的几种结果。
+5.写出Javascript中常用的至少10个事件名称，及其代表的含义。
+6.写出javascript中页面刷新的常用写法。
+7.写出Javascript中页面跳转的常用写法，至少写五个。
+8.String内置对象的常用方法有哪些，写出其中的5个。需要中文解释。
+9.写出Javascript中数组内置对象的5个方法，并说明每个方法的作用。
+10.写出Javascript中Math内置对象的5个方法，并说明每个方法的作用。
+11.写出window对象下常用的五个子对象，解释其含义。
+12.写出window对象常用的5个方法，说明每个方法的作用。
+13.写出document对象中最常用的三个选择器，分别解释其含义。
+14.写出DOM中常用的属性，至少五个，解释其含义。
+15.写出至少五个正则表达式元字符，并解释其含义。
+16.写出至少三个方法，来实现正则表达式对一个字符串的验证。
+17.写出至少10个变量名不可以选用的系统关键字或保留字。
+Javascript中, 如何声明一个数组？
