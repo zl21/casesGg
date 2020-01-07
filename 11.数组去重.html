@@ -10,12 +10,106 @@
 
 <body>
     <script>
+        /* https://juejin.im/post/5aed6110518825671b026bed */
         var arr = [10, 20, 20, 20, 30, 40, 40, 10];
-        /* 方法1： IE6中使用new Set ()方法，先将数组去重，但是此方法返回的是一个对象，所以之后要将对象转为数组，使用...
+        /* 方法1： Set与...解构去重。IE6中使用new Set ()方法，先将数组去重，但是此方法返回的是一个对象，所以之后要将对象转为数组，使用...
             注意：Set () 没法去重元素是引用对象的数组。不会对原数组进行操作。
         */
         console.log([...new Set(arr)]);//[10, 20, 30, 40]
+        console.log(Array.from(new Set(arr)));//Array.from()将对象转为数组。不改变原数组。同于...的功能之一。
         console.log(arr);//[10, 20, 20, 20, 30, 40, 40, 10]
+
+        /* 方法2： 原生的两层循环的方法*/
+        function unique(arr) {
+            //判断不是数组的话就提示类型错误
+            if (!Array.isArray(arr)) {
+                console.log('type error');
+                return;
+            }
+            let result = [arr[0]];
+            //外层从第二个元素开始拿，依次与前一个元素作比较
+            for (let i = 1; i < arr.length; i++) {
+                let flag = true;
+                //内层拿前一个与后一个(即外层的那个)作比较，
+                for (let j = 0; j < result.length; j++) {
+                    if (arr[i] === result[j]) {
+                        flag = false;
+                        break;
+                    }
+                }
+                if (flag) {
+                    result.push(arr[i]);
+                }
+            }
+            return result;
+        }
+        // console.log(unique(arr));
+
+
+        /* 方法3： indexOf('a')判断数组中有没有a元素。*/
+        function unique() {
+            if (!Array.isArray(arr)) {
+                console.log('type error!');
+                return;
+            }
+            let result = [];
+            //用小于时就想最多能等于几
+            for (let i = 0; i < arr.length; i++) {
+                if (result.indexOf(arr[i]) === -1) {
+                    result.push(arr[i]);
+                }
+            }
+            return result;
+        }
+        console.log(unique(arr));
+
+
+        /* 方法4： 过滤出第一次出现的位置和当前位置相等的元素。不等则说明该元素是重复元素。*/
+        function unique(arr) {
+            if (!Array.isArray(arr)) {
+                console.log('type error!')
+                return
+            }
+            return Array.prototype.filter.call(arr, function (item, index) {
+                return arr.indexOf(item) === index;
+            });
+        }
+
+        /* 方法5：先排序，后遍历比较相邻元素，相等则跳过该元素，不等则插入。 */
+        function unique(arr) {
+            if (!Array.isArray(arr)) {
+                console.log('type error!');
+                return;
+            }
+            arr = arr.sort();
+            let res = [];
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] !== arr[i - 1]) {
+                    res.push(arr[i]);
+                }
+            }
+            return res;
+        }
+
+        /* 方法6：创建一个空对象，将数组元素作为对象的属性，这些属性的初始值都为1，每出现一次值就加1，此时属性值对应的就是该元素出现的次数了。 */
+        function unique(arr) {
+            if (!Array.isArray(arr)) {
+                console.log('type error!')
+                return
+            }
+            let res = [],
+                obj = {}
+            for (let i = 0; i < arr.length; i++) {
+                if (!obj[arr[i]]) {
+                    res.push(arr[i])
+                    obj[arr[i]] = 1
+                } else {
+                    obj[arr[i]]++
+                }
+            }
+            return res
+        }
+
     </script>
 </body>
 
