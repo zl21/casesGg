@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function reverse(arr){
+            var res = [];
+            for (let i in arr) {
+                res.unshift([arr[i]]);//插到最后第1位就到末尾了
+                // res.push(arr[arr.length-1-i]);//或这样做
+            }
+            return res;
+        }
+        var arr = [9,8,7,6,5,4,3,2,1,0];
+        console.log(reverse(arr));
+    </script>
+</body>
+</html>
