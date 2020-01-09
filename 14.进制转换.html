@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function to2b(x) {
+            var arr = [];
+            var yu = null;
+            while (x > 0) {
+                yu = x % 2;//拿到余数
+                x = parseInt(x / 2);//拿到商并取整
+                arr.unshift(yu);//插入到数组中的第一位
+            }
+            return arr.join("");//完了之后转换成字符串
+        }
+        console.log(to2b(2));
+        console.log(to2b(3));//11
+        console.log(to2b(9));//1001
+
+    </script>
+</body>
+
+</html>
