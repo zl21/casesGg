@@ -20,9 +20,27 @@
             }
             return arr.join("");//完了之后转换成字符串
         }
-        console.log(to2b(2));
+
+        function change(x,y){
+            var arr = [];
+            var yu = null;
+            var str = '0123456789abcdef';
+            var res = '';
+            while(x>0){
+                yu = x % y;
+                arr.push(yu);
+                x = parseInt(x / y);
+            }
+            while(arr.length > 0){
+                res += str[arr.pop(yu)];//拿str中的哪一位出来拼接，依次拿arr最后一位数，这个数刚好是str中的某个下标。
+            }
+            return res;
+        }
+        /* console.log(to2b(2));
         console.log(to2b(3));//11
-        console.log(to2b(9));//1001
+        console.log(to2b(9));//1001 */
+        console.log(change(15,16));//f
+        
 
     </script>
 </body>
