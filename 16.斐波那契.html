@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>feiBoNaQi</title>
+</head>
+
+<body>
+    <script>
+        /* 斐波那契数列：1、1、2、3、5、8、13…… */
+        function fei(x) {
+            if (x == 1 || x == 2) {
+                return 1;
+            }
+            return fei(x - 1) + fei(x - 2);
+        }
+        console.log(fei(3));//2
+        console.log(fei(5));//5
+        console.log(fei(12));//144
+
+        //数组：1-100月分别的兔子数。思路：从3月份开始循环进行计算，结果保存在数组arr中。
+        var arr = [1, 1, 2];
+        for (var i = 2; i < 100; i++) {
+            arr[i] = arr[i - 1] + arr[i - 2];
+        }
+        console.log(arr);
+    </script>
+</body>
+
+</html>
