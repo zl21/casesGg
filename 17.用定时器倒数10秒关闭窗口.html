@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>17.用定时器倒数10秒关闭窗口</title>
+</head>
+
+<body>
+    <p><span>10</span> 秒后关闭窗口。</p>
+    <script>
+        var oSpan = document.querySelector('span');
+        var timer = null;
+        var num = 10;
+        timer = setInterval(function () {
+            oSpan.innerHTML=num;
+            num--;
+            num < 1 ? clearInterval(timer) : false;
+        },1000);
+    </script>
+</body>
+
+</html>
