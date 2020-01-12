@@ -17,7 +17,8 @@
         timer = setInterval(function () {
             oSpan.innerHTML=num;
             num--;
-            num < 1 ? clearInterval(timer) : false;
+            // num < 1 ? clearInterval(timer) : false;
+            num < 1 ? window.close() : false;
         },1000);
     </script>
 </body>
