@@ -15,6 +15,8 @@
         /* 方法1： Set与...解构去重。IE6中使用new Set ()方法，先将数组去重，但是此方法返回的是一个对象，所以之后要将对象转为数组，使用...
             注意：Set () 没法去重元素是引用对象的数组。不会对原数组进行操作。
         */
+        console.log(new Set(arr));//{10, 20, 30, 40}
+        console.log([new Set(arr)]);//[{10, 20, 30, 40}]
         console.log([...new Set(arr)]);//[10, 20, 30, 40]
         console.log(Array.from(new Set(arr)));//Array.from()将对象转为数组。不改变原数组。同于...的功能之一。
         console.log(arr);//[10, 20, 20, 20, 30, 40, 40, 10]
@@ -61,7 +63,7 @@
             }
             return result;
         }
-        console.log(unique(arr));
+        // console.log(unique(arr));
 
 
         /* 方法4： 过滤出第一次出现的位置和当前位置相等的元素。不等则说明该元素是重复元素。*/
@@ -107,7 +109,7 @@
                     obj[arr[i]]++
                 }
             }
-            return res
+            return res;
         }
 
     </script>
