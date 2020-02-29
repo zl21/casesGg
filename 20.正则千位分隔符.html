@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //https://www.jianshu.com/p/555db411b6a3
+        let money = 10000000;
+        console.log(a.toLocaleString());
+        //1.由右向左匹配，所以需要一个$ 做结尾
+        //2.以3个数字为一组，以多组做结尾所以+
+        //3.查找每组前的空字符串
+        // let reg = //gi;//全局
+        // let reg = /$/gi;//$结尾
+        // let reg = /(\d{3})$/gi;//一组3数
+        let reg = /(\d{3})+$/gi;//多组
+        let reg = /(?=(\d{3})+$)/gi;//匹配
+    </script>
+</body>
+</html>
