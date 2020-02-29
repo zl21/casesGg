@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>防抖和节流</title>
+</head>
+
+<body>
+  <input type="text" id="input" />
+  <script>
+    /*
+      防抖和节流函数
+        作用：正常函数在单位时间内可以触发N次，但是使用了防抖/节流函数处理，在单位时间内只能触发一次
+              优化函数的性能
+
+        防抖：
+          原理：在单位时间内，最后一次函数的调用生效，前面的没有用。
+          应用：input输入框input事件
+        节流：在单位时间内，第一次函数的调用生效，后面的没有用
+          应用：滚轮事件
+    */
+
+    const input = document.getElementById("input");
+
+    // const result = debounce(callback, 1000);
+    // input.oninput = result;
+    // 赋值：先求右边的值，再赋值给左边
+    // oninput事件绑定回调函数是 debounce 返回值的新函数
+    input.oninput = debounce(callback, 1000);
+
+    function callback(event) {
+      /*
+        正常事件回调函数：
+          this --> 被绑定事件的DOM元素
+          事件回调函数中，有一个参数 --> event
+      */
+      console.log("input事件被触发了~");
+      console.log("event", event);
+      console.log("this", this);
+    }
+    /**
+      封装防抖/节流函数
+        fn 要处理的目标函数
+        time 单位时间
+    */
+    function debounce(fn, time) {
+      // 存储上一次定时器的timer
+      let timer = null;
+      // debounced是事件的回调函数，所以有event和this
+      return function debounced() {
+        console.log('event', event);
+        console.log('this', this);
+        const _self = this;//input
+        const args = arguments;//inputEvent
+        // 将上一次的定时器清除
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+          // 需要修改目标函数 fn 的 this指向 和 参数。
+          //zl:因为原来setTimeout中的回调函数是匿名函数，this指向window，event为undefined(没传嘛)。所以要改变this和event，由此在上面定义了_self和args(arguments是保存实参的伪数组，可以作为apply的第二个参数)。
+          fn.apply(_self, args);
+        }, time);
+      };
+    }
+
+    function throttle(fn, time) {
+      // 记录上一次函数调用时间
+      let lastTime = 0;
+      return function throttled() {
+        // 记录当前函数调用的时间
+        const nowTime = Date.now();
+        if (nowTime - lastTime > time) {
+          // 修改函数this和参数
+          fn.apply(this, arguments);
+          // 同步时间
+          lastTime = nowTime;
+        }
+      };
+    }
+  </script>
+</body>
+
+</html>
