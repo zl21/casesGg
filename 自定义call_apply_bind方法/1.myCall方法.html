@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+      自定义call/apply/bind方法
+      https://juejin.im/post/5c564e3bf265da2d943f3af3#heading-3
+    */
+
+      function fn() {
+        console.log("fn函数打印结果 *********");
+        console.log(this);
+        console.log(arguments);
+        console.log("fn函数打印结果 *********");
+
+        return 123456789;
+      }
+
+      const obj = {
+        name: "peihua~~"
+      };
+
+      // 研究原生call方法
+      // call会强制改变函数this指向，并且会调用函数
+      // this --> window  arguments 空
+      // fn.call();
+      // this --> obj  arguments [1, 2, 3, 4]
+      // const result = fn.call(obj, 1, 2, 3, 4);
+      // 返回值 undefined
+      // call方法调用后的返回值看原函数(fn)的返回值
+      // console.log(result);
+
+      // 自定义myCall方法
+
+      /*
+        1. 怎么让自定义myCall方法所有函数都能调用？
+          所有函数都是大写Function的实例
+            所以 所有函数都能通过__proto__找到Function.prototype，从而使用上面的方法
+
+        2. 完成功能：
+          - 改变函数的this指向 --> target.fn() fn函数的this就会指向target (隐式)
+          - 调用函数并给函数传参
+          - 要有返回值    
+      */
+      Function.prototype.myCall = function(target = window, ...args) {
+        /*
+          target 代表改变函数this指向的对象
+          ...args 剩下函数所有参数
+
+          问题：打开this时，发现对象有一个fn方法，点开却没了，为什么？
+            调用函数 打印this，此时还没有执行 删除fn 的语句。所以打印时可以看到 fn 属性
+              说明 浏览器打印时，会打印对象当前的状态
+            但是后来，当js引擎执行到 删除fn 的语句，fn属性就被删除了
+              但是当你点开对象时，会读取对象最新的属性值
+
+            需求：不想打印时，出现fn属性？
+              加载隐式原型上
+        */  
+        // target = target || window;
+
+        // 给target对象，添加fn方法
+        // this指向调用myCall方法的函数
+        target.__proto__.fn = this;
+        // 完成改变fn函数的this指向
+        // 完成给fn函数传参
+        const result = target.fn(...args);
+        // 完成改变fn函数的this指向，应该要删除添加的多余属性
+        delete target.__proto__.fn;
+        // 返回值看fn的返回值
+        return result;
+      };
+
+      // 所以 myCall方法的this指向fn
+      const result = fn.myCall(obj, 1, 2, 3);
+      console.log(result);
+    </script>
+  </body>
+</html>
